@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IELTS Speaking 1 · Talk About You</title>
+<style>
+:root{
+  --cran:#8E1F45; --cran-d:#6B1433; --pink:#F7DFE7;
+  --mint:#23907A; --mint-l:#DCF1EA; --bg:#F1F6F4;
+  --ink:#1D2B2E; --soft:#5A6B6E; --line:#CADAD4; --white:#fff;
+  --ok:#1F8A5B; --bad:#B3261E;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI","Trebuchet MS",system-ui,-apple-system,Roboto,sans-serif;
+  font-size:19px;line-height:1.55}
+h1,h2,h3{font-family:Georgia,"Times New Roman",serif;line-height:1.2;margin:0 0 .5em}
+.ar{font-family:"Segoe UI",Tahoma,"Arial",sans-serif;direction:rtl;unicode-bidi:isolate}
+button{font:inherit;cursor:pointer}
+button:focus-visible,select:focus-visible,input:focus-visible{outline:3px solid var(--mint);outline-offset:2px}
+mark{background:var(--pink);color:var(--cran-d);padding:0 .2em;border-radius:4px;font-weight:600}
+
+/* top bar */
+.bar{position:sticky;top:0;z-index:20;background:var(--cran);color:#fff;
+  padding:12px 20px;padding-top:calc(12px + env(safe-area-inset-top,0px));
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.bar .brand{font-family:Georgia,serif;font-size:1.15rem;font-weight:700;cursor:pointer;background:none;border:0;color:#fff;padding:0}
+.bar .grow{flex:1}
+.pts{background:#fff;color:var(--cran-d);border-radius:999px;padding:4px 14px;font-weight:700}
+.tbtn{background:transparent;border:2px solid rgba(255,255,255,.6);color:#fff;border-radius:10px;padding:5px 12px;font-size:.9rem}
+.tbtn:hover{background:rgba(255,255,255,.15)}
+
+main{max-width:1040px;margin:0 auto;padding:24px 18px 60px}
+
+/* hero */
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:28px;align-items:center;margin:10px 0 34px}
+.hero h1{font-size:2.6rem;color:var(--cran-d)}
+.hero p{color:var(--soft);margin:.2em 0 1em;max-width:34em}
+.chat{display:flex;flex-direction:column;gap:12px}
+.bub{max-width:88%;padding:14px 18px;border-radius:20px;font-size:1.05rem}
+.bub.ex{background:#fff;border:2px solid var(--line);border-bottom-left-radius:4px;align-self:flex-start}
+.bub.me{background:var(--cran);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.bub small{display:block;font-size:.78rem;opacity:.75;margin-bottom:2px}
+.mic{background:#fff;border:2px solid var(--line);border-radius:18px;padding:18px;text-align:center}
+.mic .bars path{transform-origin:center;animation:pulse 1.6s ease-in-out infinite}
+.mic .bars path:nth-child(2n){animation-delay:.2s}
+.mic .bars path:nth-child(3n){animation-delay:.4s}
+@keyframes pulse{0%,100%{transform:scaleY(.55)}50%{transform:scaleY(1)}}
+.namecard{display:inline-block;background:var(--pink);border-radius:10px;padding:6px 18px;margin-top:6px}
+.namecard span{display:block;font-size:.75rem;color:var(--cran-d);letter-spacing:.08em;text-transform:uppercase}
+.namecard b{font-family:Georgia,serif;font-size:1.2rem;color:var(--cran-d)}
+.sub{max-width:620px;margin:0 0 28px}
+.sub .lbl{font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--mint);font-weight:700;margin-bottom:8px}
+.facts{background:var(--mint-l);border-left:6px solid var(--mint);border-radius:0 14px 14px 0;padding:16px 20px;margin-bottom:30px}
+.facts ul{margin:.3em 0 0;padding-left:1.2em}
+.facts li{margin:.25em 0}
+
+.topics{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.tile{background:#fff;border:2px solid var(--line);border-radius:16px;padding:18px;text-align:left;color:var(--ink);position:relative;transition:border-color .15s}
+.tile:hover{border-color:var(--cran)}
+.tile .ico{font-size:2rem}
+.tile h3{margin:.3em 0 .2em;font-size:1.3rem}
+.tile .prog{height:8px;background:var(--mint-l);border-radius:8px;overflow:hidden;margin-top:10px}
+.tile .prog i{display:block;height:100%;background:var(--mint)}
+.tile .badge{position:absolute;top:12px;right:14px;font-size:1.5rem}
+.tile.final{background:var(--cran-d);color:#fff;border-color:var(--cran-d)}
+.tile.final:hover{border-color:var(--mint)}
+
+/* topic page */
+.back{background:none;border:0;color:var(--cran);font-weight:600;padding:0;margin-bottom:12px}
+.thead{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.thead .ico{font-size:2.6rem}
+.thead h2{font-size:2rem;margin:0;color:var(--cran-d)}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px}
+.step{border:2px solid var(--line);background:#fff;border-radius:999px;padding:8px 16px;color:var(--ink);font-size:.95rem}
+.step.on{background:var(--cran);border-color:var(--cran);color:#fff}
+.step.done::after{content:" ✓";color:var(--mint);font-weight:700}
+.step.on.done::after{color:#fff}
+.panel{background:#fff;border:2px solid var(--line);border-radius:18px;padding:24px}
+.panel > p.lead{color:var(--soft);margin-top:0}
+
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px}
+.card{border:2px solid var(--line);border-radius:14px;padding:16px;background:var(--bg)}
+.card .ph{font-size:1.2rem;font-weight:700;color:var(--cran-d)}
+.card .ar{font-size:1.15rem;color:var(--mint);margin:.2em 0}
+.card .eg{font-style:italic;color:var(--soft)}
+.card.seen{border-color:var(--mint);background:var(--mint-l)}
+.say{margin-top:10px;background:#fff;border:2px solid var(--mint);color:var(--mint);border-radius:10px;padding:5px 12px;font-size:.9rem;font-weight:600}
+.card.seen .say{background:var(--mint);color:#fff}
+
+.band{border-radius:16px;padding:16px 18px;margin:12px 0;border:2px solid var(--line);background:var(--bg)}
+.band h4{margin:0 0 6px;font-size:1rem;display:flex;gap:10px;align-items:center}
+.band .lvl{border-radius:999px;padding:2px 12px;color:#fff;font-weight:700}
+.b5 .lvl{background:#8A8F91}.b6 .lvl{background:var(--mint)}.b7 .lvl{background:var(--cran)}
+.band .txt{font-size:1.08rem}
+.why{margin-top:10px;background:#fff;border-radius:10px;padding:10px 14px;border-left:5px solid var(--mint);display:none}
+.why.show{display:block}
+.whyb{margin-top:8px;background:none;border:2px solid var(--ink);border-radius:10px;padding:4px 12px;font-size:.9rem}
+
+.q{font-size:1.2rem;font-weight:700;margin:0 0 12px}
+.opts{display:flex;flex-direction:column;gap:10px}
+.opt{text-align:left;background:var(--bg);border:2px solid var(--line);border-radius:12px;padding:12px 16px;color:var(--ink)}
+.opt:hover:not(:disabled){border-color:var(--cran)}
+.opt.right{background:#E0F3E9;border-color:var(--ok)}
+.opt.wrong{background:#FBE5E3;border-color:var(--bad)}
+.opt:disabled{cursor:default}
+.fb{margin-top:12px;padding:12px 16px;border-radius:12px;display:none}
+.fb.show{display:block}
+.fb.good{background:#E0F3E9;color:#12593A}
+.fb.poor{background:#FBE5E3;color:#7E1A14}
+.nav{display:flex;justify-content:space-between;align-items:center;margin-top:18px;gap:10px;flex-wrap:wrap}
+.btn{background:var(--cran);color:#fff;border:0;border-radius:12px;padding:10px 20px;font-weight:600}
+.btn:hover{background:var(--cran-d)}
+.btn.ghost{background:#fff;color:var(--cran);border:2px solid var(--cran)}
+.btn:disabled{opacity:.45;cursor:default}
+.count{color:var(--soft);font-size:.95rem}
+
+.gap{font-size:1.15rem;line-height:2.3}
+.gap select{font:inherit;font-size:1rem;padding:4px 8px;border-radius:8px;border:2px solid var(--cran);background:var(--pink);color:var(--cran-d);max-width:100%}
+.gap select.ok{border-color:var(--ok);background:#E0F3E9;color:#12593A}
+.gap select.no{border-color:var(--bad);background:#FBE5E3}
+
+.speak{border:2px solid var(--line);border-radius:16px;padding:18px;margin-bottom:16px}
+.speak.done{border-color:var(--mint);background:var(--mint-l)}
+.speak .starter{background:#fff;border:2px dashed var(--mint);border-radius:10px;padding:8px 12px;margin:8px 0;display:inline-block}
+.timer{height:14px;background:var(--line);border-radius:10px;overflow:hidden;margin:12px 0 6px}
+.timer i{display:block;height:100%;width:0;background:var(--mint);transition:width .25s linear}
+.timer.think i{background:#E0A13A}
+.tlabel{font-weight:700;font-size:.95rem;min-height:1.4em}
+.checks label{display:block;margin:4px 0}
+.checks input{width:20px;height:20px;vertical-align:middle;margin-right:8px;accent-color:var(--mint)}
+
+.result{text-align:center;padding:10px}
+.result .big{font-family:Georgia,serif;font-size:3.2rem;color:var(--cran-d);font-weight:700}
+.cert{display:none;margin:24px auto 0;max-width:760px;border:10px double var(--cran);border-radius:6px;padding:36px;text-align:center;background:#fff}
+.cert.show{display:block}
+.cert h2{font-size:2.2rem;color:var(--cran-d)}
+.cert .nm{font-family:Georgia,serif;font-size:2rem;border-bottom:2px solid var(--mint);display:inline-block;padding:0 30px 4px;margin:10px 0}
+.namein{font:inherit;padding:8px 12px;border-radius:10px;border:2px solid var(--line);width:min(340px,100%)}
+
+footer{text-align:center;color:var(--soft);font-size:.9rem;padding:20px}
+#confetti{position:fixed;inset:0;pointer-events:none;z-index:50}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:#fff;padding:10px 20px;border-radius:12px;z-index:60;opacity:0;transition:opacity .3s}
+.toast.show{opacity:1}
+
+@media (max-width:760px){
+  .hero{grid-template-columns:1fr}
+  .hero h1{font-size:2rem}
+  body{font-size:18px}
+  .panel{padding:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}.mic .bars path{animation:none}}
+@media print{
+  body *{visibility:hidden}
+  .cert,.cert *{visibility:visible}
+  .cert{position:absolute;left:0;top:0;width:100%;border-color:var(--cran)}
+}
+</style>
+</head>
+<body>
+<div class="bar">
+  <button class="brand" onclick="goHome()">Speaking 1 · Talk About You</button>
+  <span class="grow"></span>
+  <span class="pts" id="pts">0 points</span>
+  <button class="tbtn" onclick="saveJSON()">Save progress</button>
+  <button class="tbtn" onclick="document.getElementById('loadf').click()">Load progress</button>
+  <input type="file" id="loadf" accept=".json" hidden onchange="loadJSON(event)">
+</div>
+<main id="app"></main>
+<footer>Designed by: Nazila Motahari</footer>
+<canvas id="confetti"></canvas>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ============ DATA ============ */
+const TOPICS = [
+{id:"hometown", name:"Your hometown", ico:"🏙️",
+ phrases:[
+  ["I'm originally from…","أنا في الأصل من…","I'm originally from Al Ain, but I live in Abu Dhabi now."],
+  ["It's well known for…","إنها مشهورة بـ…","It's well known for its date farms and Jebel Hafeet."],
+  ["What I like most about it is…","أكثر ما يعجبني فيها هو…","What I like most about it is how peaceful it is."],
+  ["It has changed a lot over the years","لقد تغيّرت كثيرًا على مرّ السنين","It has changed a lot over the years — there are new malls everywhere."],
+  ["It can get quite crowded","قد تصبح مزدحمة جدًا","It can get quite crowded at the weekend."],
+  ["There's plenty to do","هناك الكثير من الأشياء لتفعلها","There's plenty to do, like cafés, parks and sports clubs."]],
+ ladder:{q:"Where is your hometown?",
+  b5:"My hometown is Al Ain. It is good. I like it.",
+  n5:"Very short sentences. The word “good” gives no real information. There is no reason or example.",
+  b6:"[[I'm originally from]] Al Ain, which is about an hour and a half from Abu Dhabi. [[It's well known for]] its oases and Jebel Hafeet. [[What I like most about it is]] that it's quite peaceful.",
+  n6:"The answer is extended to three sentences. It uses topic phrases correctly and gives a reason (it's peaceful).",
+  b7:"[[I'm originally from]] Al Ain, the “Garden City”. It's [[well known for]] its oases, and honestly, [[what I like most]] is the slower pace of life — although [[it has changed a lot over the years]], with new roads and malls everywhere.",
+  n7:"More precise vocabulary (“slower pace of life”), a natural word like “honestly”, and a contrast with “although”."},
+ upgrade:[
+  {q:"Is your hometown a good place for young people?",o:["Yes. Good.","Yes, I think so. There's plenty to do, like cafés and sports clubs, so young people never get bored.","Yes, is very good place because have many thing."],c:1,
+   w:"B gives a reason and an example with correct grammar. A is too short. C is long, but the grammar mistakes make it hard to follow."},
+  {q:"Has your hometown changed much?",o:["Yes, it has changed a lot over the years. When I was a child there were no malls, but now there are three.","Yes. Change.","My hometown is Fujairah. Fujairah is in the UAE. The UAE has seven emirates."],c:0,
+   w:"A answers the question and compares the past with now. C talks a lot but never answers the question — examiners notice this."},
+  {q:"What do you like most about your hometown?",o:["I like it.","The people.","What I like most about it is the people — everyone knows each other, so it feels like one big family."],c:2,
+   w:"C uses a Band 6 phrase and explains why. A and B are too short to show your English."}],
+ gap:{t:"I'm {0} Ras Al Khaimah. It's {1} its mountains and beaches. {2} how friendly the people are. However, it {3}, especially during the holidays.",
+  a:["originally from","well known for","What I like most about it is","can get quite crowded"],x:["really into","helps me relax"]},
+ speak:[["Where are you from?","I'm originally from … , which is …"],
+  ["What's the best thing about your hometown?","What I like most about it is … because …"],
+  ["Is your hometown a good place to live? Why?","I'd say so, because there's plenty to …"]]},
+
+{id:"home", name:"Your home", ico:"🏡",
+ phrases:[
+  ["I live in a … with my family","أعيش في … مع عائلتي","I live in a villa with my family in Khalifa City."],
+  ["It's quite spacious","إنه واسع إلى حدٍّ ما","It's quite spacious, so we all have our own rooms."],
+  ["My favourite room is … because …","غرفتي المفضلة هي … لأن …","My favourite room is the majlis because we have guests there."],
+  ["It's where I spend most of my time","إنه المكان الذي أقضي فيه معظم وقتي","My bedroom is where I spend most of my time."],
+  ["It's in a quiet neighbourhood","إنه في حيٍّ هادئ","Our house is in a quiet neighbourhood near a park."],
+  ["If I could change one thing, I'd …","لو كان بإمكاني تغيير شيء واحد، لـ…","If I could change one thing, I'd add a garden."]],
+ ladder:{q:"Do you live in a house or a flat?",
+  b5:"I live in villa. It is big. I have many room.",
+  n5:"Grammar mistakes (“in villa”, “many room”) and very short, simple sentences.",
+  b6:"[[I live in a villa with my family]] in Khalifa City. [[It's quite spacious]], so everyone has their own room, which is great because I can study without any noise.",
+  n6:"Clear answer, correct grammar, and a reason with “so” and “because”.",
+  b7:"At the moment [[I live with my family]] in a villa in Khalifa City. [[It's in a fairly quiet neighbourhood]] and the house itself is really spacious. [[If I could change one thing]], though, I'd add a proper study room, because I usually end up doing assignments at the kitchen table.",
+  n7:"Natural phrases like “at the moment”, “the house itself” and “end up”, plus a second conditional (“If I could…, I'd…”)."},
+ upgrade:[
+  {q:"Which room do you like most in your home?",o:["My favourite room is my bedroom because it's where I spend most of my time — I study, relax and play games there.","Bedroom.","I am liking the bedroom because is mine."],c:0,
+   w:"A uses two Band 6 phrases and gives examples. C has grammar mistakes (“I am liking”, “because is mine”)."},
+  {q:"Would you like to move to a different home in the future?",o:["Yes, maybe.","Maybe one day. If I could change one thing, I'd live closer to the beach, because I love swimming.","I would like to move to a house. A house is a building where people live."],c:1,
+   w:"B answers and explains. C defines the word “house” instead of answering — this sounds memorised."},
+  {q:"Describe your neighbourhood.",o:["It is quiet, quiet, very quiet.","Neighbourhood good.","It's a quiet neighbourhood with lots of trees and a small mosque, so it's very peaceful at night."],c:2,
+   w:"C describes with details. A repeats the same word, which shows a small vocabulary."}],
+ gap:{t:"I live in a villa {0}. It's {1}, so we each have our own bedroom. My favourite room is the majlis, because {2} with my friends. {3}, I'd add a small garden.",
+  a:["with my family","quite spacious","it's where I spend most of my time","If I could change one thing"],x:["I'm hoping to","It reminds me of"]},
+ speak:[["Tell me about the place where you live.","I live in a … with my family in …"],
+  ["What's your favourite room at home?","My favourite room is … because it's where I …"],
+  ["What would you change about your home?","If I could change one thing, I'd …"]]},
+
+{id:"studies", name:"Your studies", ico:"🎓",
+ phrases:[
+  ["I'm currently studying…","أدرس حاليًا…","I'm currently studying business at HCT."],
+  ["I'm in my first / second year","أنا في سنتي الأولى / الثانية","I'm in my first year, so everything is still new."],
+  ["I chose it because…","اخترته لأن…","I chose it because I love working with computers."],
+  ["The most challenging part is…","الجزء الأكثر صعوبة هو…","The most challenging part is writing reports in English."],
+  ["It's useful for my future career","إنه مفيد لمستقبلي المهني","Learning English is useful for my future career."],
+  ["I'm hoping to…","آمل أن…","I'm hoping to work for a government company."]],
+ ladder:{q:"What are you studying?",
+  b5:"I study business. It is nice. I like it very much.",
+  n5:"Answers the question but adds nothing useful. “Nice” is a weak, general word.",
+  b6:"[[I'm currently studying]] business at HCT, and [[I'm in my first year]]. [[I chose it because]] I'd like to work in a bank one day, so I think it's really [[useful for my future career]].",
+  n6:"Gives details (where, which year) and a reason. Uses “so” to connect ideas.",
+  b7:"I'm in the first year of a business degree at HCT. [[I chose it]] mainly [[because]] [[I'm hoping to]] work in finance, possibly for a bank. [[The most challenging part]] so far is definitely the English, but it's improving week by week.",
+  n7:"Precise words (“degree”, “finance”), natural phrases (“so far”, “week by week”) and a contrast with “but”."},
+ upgrade:[
+  {q:"Why did you choose your subject?",o:["Because.","My father say me to study it.","I chose it because I've always been good with computers, and IT jobs are in high demand in the UAE."],c:2,
+   w:"C gives two clear reasons. B has a grammar mistake — we say “My father told me to…”."},
+  {q:"Do you enjoy your studies?",o:["Mostly, yes. The most challenging part is writing essays in English, but the practical classes are really enjoyable.","Yes I enjoy.","Studies are important for all people in the world and for the future of the country."],c:0,
+   w:"A is personal and balanced. C is too general — Part 1 questions are about YOU."},
+  {q:"What do you plan to do after you graduate?",o:["Work.","I'm hoping to find a job in a government office, and maybe study for a master's degree later.","After graduate I will working."],c:1,
+   w:"B uses “I'm hoping to” and adds a second idea. C has two grammar mistakes."}],
+ gap:{t:"{0} engineering at HCT, and {1}. {2} I love solving problems. {3} is the maths, but I'm getting better.",
+  a:["I'm currently studying","I'm in my second year","I chose it because","The most challenging part"],x:["I couldn't live without","It's well known for"]},
+ speak:[["What are you studying?","I'm currently studying … and I'm in my … year."],
+  ["Why did you choose it?","I chose it because …"],
+  ["What do you find difficult about your studies?","The most challenging part is …, but …"]]},
+
+{id:"free", name:"Free time", ico:"⚽",
+ phrases:[
+  ["In my free time, I tend to…","في وقت فراغي، أميل إلى…","In my free time, I tend to go to the gym."],
+  ["I'm really into…","أنا مهتم جدًا بـ…","I'm really into football at the moment."],
+  ["It helps me relax","يساعدني على الاسترخاء","Swimming helps me relax after class."],
+  ["I've been doing it since…","أمارسه منذ…","I've been doing it since I was twelve."],
+  ["whenever I get the chance","كلما سنحت لي الفرصة","I go camping whenever I get the chance."],
+  ["It's a great way to…","إنها طريقة رائعة لـ…","It's a great way to meet new people."]],
+ ladder:{q:"What do you do in your free time?",
+  b5:"I play football and I go to mall. I like football.",
+  n5:"A list with no reasons. Grammar mistake: “go to mall” should be “go to the mall”.",
+  b6:"[[In my free time, I tend to]] play football with my friends. [[I'm really into]] it because [[it helps me relax]] after a long day of classes.",
+  n6:"Two Band 6 phrases and a clear reason connected with “because”.",
+  b7:"[[Whenever I get the chance]], I play football with a group of friends — [[we've been playing together since]] secondary school. [[It's a great way to]] switch off after classes, and it keeps me fit as well, which is a bonus.",
+  n7:"Present perfect continuous, natural expressions (“switch off”, “which is a bonus”) and two different benefits."},
+ upgrade:[
+  {q:"How do you usually spend your weekends?",o:["I tend to spend Fridays with my family, and on Saturdays I usually go to the desert with my friends.","Weekend is good. I sleep.","Weekends are Saturday and Sunday in the UAE."],c:0,
+   w:"A gives a clear, personal picture of both days. C gives a fact instead of answering about you."},
+  {q:"Do you prefer relaxing indoors or outdoors?",o:["Outdoors.","I prefer indoor because is cold.","Definitely outdoors, especially in winter. It's a great way to get some fresh air after sitting in class all day."],c:2,
+   w:"C chooses, then explains. B has grammar mistakes (“indoor”, “because is cold”)."},
+  {q:"Is there a hobby you would like to try?",o:["No.","Yes, I'd love to try horse riding. I've always been really into animals, so I think I'd enjoy it.","Hobbies are activities that people do in their free time."],c:1,
+   w:"B names a hobby and explains why. Never answer with just “No” — always add a reason."}],
+ gap:{t:"{0} go to the gym with my cousin. We've {1} last year, and {2} after a busy week. I also swim at the beach {3}.",
+  a:["In my free time, I tend to","been doing it since","it helps me relax","whenever I get the chance"],x:["I'm not a big fan of","It's quite spacious"]},
+ speak:[["What do you do in your free time?","In my free time, I tend to …"],
+  ["How long have you had this hobby?","I've been doing it since …"],
+  ["Why do you enjoy it?","It's a great way to … and it helps me …"]]},
+
+{id:"food", name:"Food", ico:"🍲",
+ phrases:[
+  ["My favourite dish is…","طبقي المفضل هو…","My favourite dish is chicken machboos."],
+  ["It's a traditional Emirati dish","إنه طبق إماراتي تقليدي","Harees is a traditional Emirati dish."],
+  ["I'm not a big fan of…","لستُ من محبّي … كثيرًا","I'm not a big fan of spicy food."],
+  ["I'd rather … than …","أفضّل … على …","I'd rather eat at home than in a restaurant."],
+  ["It's quite healthy / unhealthy","إنه صحي / غير صحي إلى حدٍّ ما","Fast food is quite unhealthy."],
+  ["It reminds me of…","يذكّرني بـ…","This smell reminds me of my grandmother's kitchen."]],
+ ladder:{q:"What's your favourite food?",
+  b5:"My favourite food is machboos. It is delicious. I eat it every day.",
+  n5:"Correct but simple. No description of the dish and no personal connection.",
+  b6:"[[My favourite dish is]] chicken machboos. [[It's a traditional Emirati dish]] made with rice and spices, and my mother cooks it every Friday, so [[it reminds me of]] family lunches.",
+  n6:"Describes the dish and connects it to personal life with “so”.",
+  b7:"It has to be my grandmother's machboos — [[a traditional Emirati]] rice [[dish]] with lamb and spices like loomi. [[It reminds me of]] big family gatherings on Fridays. To be honest, [[I'm not a big fan of]] fast food, so [[I'd rather]] eat at home [[than]] at a restaurant.",
+  n7:"Starts naturally (“It has to be…”), uses specific details (loomi) and adds a related opinion."},
+ upgrade:[
+  {q:"Do you like cooking?",o:["Cooking is when you make food.","Not really — I'm not a big fan of cooking, but I love eating! My mother is a much better cook than me.","No cook."],c:1,
+   w:"B answers honestly, adds humour and a comparison. A defines the word — it doesn't answer."},
+  {q:"Is the food in your country healthy?",o:["Yes healthy.","Some of it is quite healthy, like grilled fish, but a lot of the sweets are quite unhealthy because of the sugar.","Food is very important for the body and the health of humans."],c:1,
+   w:"B gives a balanced answer with examples on both sides."},
+  {q:"Do you prefer eating at home or in restaurants?",o:["I'd rather eat at home than in restaurants, because home-cooked food is fresher and it's cheaper too.","Restaurant is good but home is good.","Home."],c:0,
+   w:"A uses “I'd rather … than …” and gives two reasons. B doesn't make a choice."}],
+ gap:{t:"{0} harees. {1} that we usually eat during Ramadan and Eid. {2} my grandmother's house. I'm {3} spicy food, so I avoid it.",
+  a:["My favourite dish is","It's a traditional Emirati dish","It reminds me of","not a big fan of"],x:["I'm hoping to","It can get quite crowded"]},
+ speak:[["What's your favourite food?","My favourite dish is … It's …"],
+  ["Is there any food you don't like?","I'm not a big fan of … because …"],
+  ["Do you prefer eating at home or eating out?","I'd rather … than … because …"]]},
+
+{id:"tech", name:"Phones & technology", ico:"📱",
+ phrases:[
+  ["I use my phone mainly for…","أستخدم هاتفي بشكل رئيسي لـ…","I use my phone mainly for messaging my friends."],
+  ["I couldn't live without…","لا أستطيع العيش بدون…","I couldn't live without my laptop."],
+  ["I spend too much time on…","أقضي وقتًا طويلًا جدًا على…","I spend too much time on TikTok."],
+  ["It's really convenient","إنه عملي جدًا","Online shopping is really convenient."],
+  ["On the other hand…","من ناحية أخرى…","It's useful. On the other hand, it can be addictive."],
+  ["I try to limit…","أحاول أن أقلّل من…","I try to limit my screen time at night."]],
+ ladder:{q:"How often do you use your phone?",
+  b5:"I use my phone every time. Phone is very important.",
+  n5:"“Every time” is the wrong phrase (we say “all the time”), and “Phone is” is missing “My”.",
+  b6:"I use my phone all the time, [[mainly for]] messaging my friends and checking social media. [[It's really convenient]], but I think [[I spend too much time on]] it, especially at night.",
+  n6:"Correct phrases, examples of use, and a small contrast with “but”.",
+  b7:"Honestly, I'm on it constantly — [[mainly for]] messaging, banking and studying. [[I couldn't live without]] it. [[On the other hand]], I know I spend far too much time on social media, so recently I've been [[trying to limit]] my screen time before bed.",
+  n7:"A range of uses, a linking phrase (“On the other hand”) and a present perfect continuous action."},
+ upgrade:[
+  {q:"What do you use your phone for?",o:["Many things.","Phone is technology. Technology is everywhere now.","I use my phone mainly for studying and staying in touch with friends, and sometimes for online shopping."],c:2,
+   w:"C gives three clear examples. A is too vague — always say WHAT things."},
+  {q:"Could you live without the internet for a week?",o:["Honestly, no — I couldn't live without it, because all my classes and assignments are online.","No, I can't to live.","The internet was invented in the twentieth century."],c:0,
+   w:"A answers with a strong reason. B has a grammar mistake (“can't to live”)."},
+  {q:"Do you think you spend too much time on your phone?",o:["Yes.","Yes, probably. I spend too much time on TikTok at night, so I try to limit it to one hour.","Many people spend time on phones and it is bad for all the people."],c:1,
+   w:"B is honest, specific and shows what you do about it. C talks about other people, not you."}],
+ gap:{t:"{0} studying and messaging my classmates. {1} because I can do everything in one place. {2}, I know {3} social media, so I switch it off at 11.",
+  a:["I use my phone mainly for","It's really convenient","On the other hand","I spend too much time on"],x:["It has changed a lot","I'm originally from"]},
+ speak:[["How often do you use your phone?","I use my phone mainly for …"],
+  ["Could you live without your phone?","Honestly, I couldn't live without … because …"],
+  ["Do you spend too much time online?","Probably. I spend too much time on …, so I try to limit …"]]}
+];
+
+const FINAL = [
+ {q:"Complete: “I'm ___ from Al Ain, but I live in Dubai now.”",o:["originally","original","origin","originality"],c:0},
+ {q:"Which answer sounds most like Band 6? (Q: Do you like your hometown?)",o:["Yes.","Yes, I really do. What I like most about it is the beaches.","Yes, is nice place."],c:1},
+ {q:"What does “I'm really into football” mean?",o:["I play football indoors","I like football very much","I'm tired of football","I'm bad at football"],c:1},
+ {q:"Complete: “It's quite ___, so everyone has their own room.”",o:["spacious","crowded","noisy","tiny"],c:0},
+ {q:"Which English phrase matches «أفضّل أن آكل في البيت»?",o:["I'd rather eat at home","I'm not a big fan of eating at home","I couldn't eat at home","I'm hoping to eat at home"],c:0},
+ {q:"Complete: “I've been playing tennis ___ I was ten.”",o:["since","for","from","when"],c:0},
+ {q:"Which answer is TOO SHORT for Part 1? (Q: What are you studying?)",o:["Business.","Business — I'm in my first year and I really enjoy it.","I'm currently studying business because I want to work in a bank."],c:0},
+ {q:"Complete: “The most ___ part is writing essays.”",o:["challenging","challenge","challenged","challenges"],c:0},
+ {q:"Which answer does NOT answer the question? (Q: Do you cook at home?)",o:["Sometimes, mainly at the weekend.","Food is very important for health.","Not really — I'm not a big fan of cooking."],c:1},
+ {q:"Complete: “It ___ me of my grandmother's house.”",o:["reminds","remembers","remind","memories"],c:0},
+ {q:"Complete: “I use my phone ___ for messaging.”",o:["mainly","main","mostly of","many"],c:0},
+ {q:"What does “It can get quite crowded” mean?",o:["It is always empty","Sometimes there are a lot of people","It is very clean","It is far away"],c:1},
+ {q:"How long should a good Part 1 answer usually be?",o:["One word","About 2–3 sentences","At least 10 sentences","A memorised paragraph"],c:1},
+ {q:"Complete: “If I could change one thing, I ___ add a garden.”",o:["would","will","can","am"],c:0},
+ {q:"Which phrase shows a CONTRAST?",o:["It helps me relax","On the other hand","whenever I get the chance","It's well known for"],c:1}
+];
+
+const STEPS = [["learn","1 · Learn the phrases"],["ladder","2 · Band 5, 6, 7"],["upgrade","3 · Pick the best answer"],["gap","4 · Complete the answer"],["speak","5 · Your turn"]];
+
+/* ============ STATE ============ */
+function blank(){
+  const s={points:0,name:"",topics:{},final:{best:0}};
+  TOPICS.forEach(t=>s.topics[t.id]={learn:[],ladder:[],upgrade:{},gap:false,gapTried:false,speak:[]});
+  return s;
+}
+let S=blank();
+let view={page:"home",topic:null,step:"learn"};
+
+function addPts(n){S.points+=n;document.getElementById("pts").textContent=S.points+" points";}
+function toast(m){const t=document.getElementById("toast");t.textContent=m;t.classList.add("show");clearTimeout(t._h);t._h=setTimeout(()=>t.classList.remove("show"),1800);}
+function mk(s){return s.replace(/\[\[(.+?)\]\]/g,"<mark>$1</mark>");}
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));}
+
+function stepDone(t,st){
+  const p=S.topics[t.id];
+  if(st==="learn")return p.learn.filter(Boolean).length>=t.phrases.length;
+  if(st==="ladder")return (p.ladderSeen||[]).filter(Boolean).length>=3;
+  if(st==="upgrade")return Object.keys(p.upgrade).length>=t.upgrade.length;
+  if(st==="gap")return p.gap;
+  if(st==="speak")return p.speak.filter(Boolean).length>=t.speak.length;
+}
+function topicPct(t){return STEPS.filter(([k])=>stepDone(t,k)).length/STEPS.length;}
+
+/* ============ HOME ============ */
+function setName(v){S.name=v;const e=document.getElementById("hn");if(e)e.textContent=v||"Your name";}
+function goHome(){view={page:"home"};render();window.scrollTo(0,0);}
+function home(){
+  let tiles=TOPICS.map(t=>{const p=topicPct(t);return `
+   <button class="tile" onclick="openTopic('${t.id}')">
+    ${p===1?'<span class="badge" title="Topic complete">🏅</span>':''}
+    <div class="ico">${t.ico}</div><h3>${t.name}</h3>
+    <div class="count">${Math.round(p*100)}% complete</div>
+    <div class="prog"><i style="width:${p*100}%"></i></div>
+   </button>`}).join("");
+  tiles+=`<button class="tile final" onclick="openFinal()"><div class="ico">🏆</div><h3>Final challenge</h3>
+    <div>15 questions · get 80% for your certificate</div>
+    <div style="margin-top:6px;opacity:.85">Best score: ${S.final.best}/15</div></button>`;
+  return `
+  <section class="hero">
+   <div>
+    <h1>Talk about you</h1>
+    <p>IELTS Speaking Part 1 asks simple questions about your life. This lesson gives you the phrases that turn a one-word answer into a Band 6 answer.</p>
+    <p class="ar" style="text-align:right">الجزء الأول من اختبار المحادثة يسألك عن حياتك. تعلّم عبارات تساعدك على إعطاء إجابات أطول وأفضل.</p>
+   </div>
+   <div class="mic" aria-hidden="false">
+    <svg viewBox="0 0 340 230" width="100%" role="img"><title>Microphone on the examiner's table</title>
+     <g class="bars" fill="none" stroke="var(--cran)" stroke-linecap="round" stroke-width="7">
+      <path d="M24 108v14" opacity=".30"/><path d="M50 96v38" opacity=".40"/>
+      <path d="M76 80v70" opacity=".55"/><path d="M102 92v46" opacity=".70"/>
+      <path d="M128 66v98" opacity=".85"/>
+      <path d="M212 66v98" opacity=".85"/><path d="M238 92v46" opacity=".70"/>
+      <path d="M264 80v70" opacity=".55"/><path d="M290 96v38" opacity=".40"/>
+      <path d="M316 108v14" opacity=".30"/>
+     </g>
+     <rect x="156" y="36" width="28" height="62" rx="14" fill="var(--mint)"/>
+     <path d="M148 82a22 22 0 0 0 44 0" fill="none" stroke="var(--mint)" stroke-width="5" stroke-linecap="round"/>
+     <path d="M170 104v52" stroke="var(--mint)" stroke-width="5" stroke-linecap="round"/>
+     <rect x="128" y="156" width="84" height="14" rx="7" fill="var(--cran-d)"/>
+     <rect x="20" y="176" width="300" height="9" rx="4" fill="var(--line)"/>
+    </svg>
+    <div class="namecard"><span>Candidate</span><b id="hn">${esc(S.name)||'Your name'}</b></div>
+    <input class="namein" id="heroName" placeholder="Type your name" value="${esc(S.name)}" oninput="setName(this.value)" style="margin-top:10px">
+   </div>
+  </section>
+  <div class="sub"><div class="lbl">Band 5 vs Band 6</div><div class="chat" aria-label="Example of Part 1">
+    <div class="bub ex"><small>Examiner</small>Do you like your hometown?</div>
+    <div class="bub me" style="opacity:.55"><small>You — Band 5</small>Yes. It is good.</div>
+    <div class="bub me"><small>You — Band 6</small>Yes, I really do. What I like most about it is how peaceful it is, especially compared to Dubai.</div>
+   </div></div>
+  <div class="facts">
+   <strong>How Part 1 works</strong>
+   <ul>
+    <li>It lasts 4–5 minutes. The examiner asks about 10–12 questions on 2–3 familiar topics.</li>
+    <li>Aim for 2–3 sentences per answer: answer, then add a reason or an example.</li>
+    <li>Don't memorise answers. Examiners can hear it, and it lowers your score.</li>
+   </ul>
+  </div>
+  <h2>Choose a topic</h2>
+  <div class="topics">${tiles}</div>`;
+}
+
+/* ============ TOPIC ============ */
+function openTopic(id){view={page:"topic",topic:id,step:"learn"};render();window.scrollTo(0,0);}
+function setStep(st){view.step=st;stopTimer();render();}
+function curT(){return TOPICS.find(t=>t.id===view.topic);}
+
+function topicPage(){
+  const t=curT();
+  const steps=STEPS.map(([k,l])=>`<button class="step ${view.step===k?'on':''} ${stepDone(t,k)?'done':''}" onclick="setStep('${k}')">${l}</button>`).join("");
+  const body={learn:learn,ladder:ladder,upgrade:upgrade,gap:gap,speak:speak}[view.step](t);
+  const idx=STEPS.findIndex(s=>s[0]===view.step);
+  const next=idx<STEPS.length-1?`<button class="btn" onclick="setStep('${STEPS[idx+1][0]}')">Next: ${STEPS[idx+1][1].split("· ")[1]}</button>`:`<button class="btn" onclick="goHome()">Back to topics</button>`;
+  return `<button class="back" onclick="goHome()">← All topics</button>
+   <div class="thead"><span class="ico">${t.ico}</span><h2>${t.name}</h2></div>
+   <nav class="steps">${steps}</nav>
+   <section class="panel">${body}<div class="nav"><span></span>${next}</div></section>`;
+}
+
+function learn(t){
+  const p=S.topics[t.id];
+  return `<p class="lead">Read each phrase and the example. Say the example out loud, then tap <b>I said it</b>.</p>
+  <div class="cards">${t.phrases.map((ph,i)=>`
+   <div class="card ${p.learn[i]?'seen':''}">
+    <div class="ph">${esc(ph[0])}</div>
+    <div class="ar">${ph[1]}</div>
+    <div class="eg">“${esc(ph[2])}”</div>
+    <button class="say" onclick="said(${i})">${p.learn[i]?'✓ Said it':'🗣 I said it'}</button>
+   </div>`).join("")}</div>`;
+}
+function said(i){const p=S.topics[view.topic];if(!p.learn[i]){p.learn[i]=true;addPts(2);checkBadge();}render();}
+
+function ladder(t){
+  const L=t.ladder,p=S.topics[t.id];
+  const b=(k,n,lvl)=>`<div class="band b${lvl}"><h4><span class="lvl">Band ${lvl}</span></h4>
+    <div class="txt">${mk(esc(L["b"+lvl]))}</div>
+    <button class="whyb" onclick="why(${k})">${p.ladder[k]?'Hide':'Why is this Band '+lvl+'?'}</button>
+    <div class="why ${p.ladder[k]?'show':''}">${esc(L["n"+lvl])}</div></div>`;
+  return `<p class="lead">Three students answer the same question. Read all three, then open each explanation. The <mark>highlighted</mark> words are from this topic.</p>
+   <div class="bub ex" style="margin-bottom:8px"><small>Examiner</small>${esc(L.q)}</div>
+   ${b(0,"n5",5)}${b(1,"n6",6)}${b(2,"n7",7)}`;
+}
+function why(k){const p=S.topics[view.topic];if(!p.ladderSeen)p.ladderSeen=[];
+  if(!p.ladderSeen[k]){p.ladderSeen[k]=true;addPts(2);}
+  p.ladder[k]=!p.ladder[k];checkBadge();render();}
+
+function upgrade(t){
+  const p=S.topics[t.id];
+  return `<p class="lead">Which answer would get the best score? Choose one.</p>`+
+  t.upgrade.map((u,i)=>{
+    const a=p.upgrade[i];
+    return `<div style="margin-bottom:26px"><p class="q">${i+1}. ${esc(u.q)}</p><div class="opts">
+     ${u.o.map((o,j)=>{let c="";if(a!==undefined){if(j===u.c)c="right";else if(j===a)c="wrong";}
+       return `<button class="opt ${c}" ${a!==undefined?'disabled':''} onclick="pick(${i},${j})">${String.fromCharCode(65+j)}. ${esc(o)}</button>`}).join("")}
+     </div><div class="fb ${a!==undefined?'show '+(a===u.c?'good':'poor'):''}">${a!==undefined?(a===u.c?'✓ Correct. ':'✗ Not this one. ')+esc(u.w):''}</div></div>`}).join("");
+}
+function pick(i,j){const t=curT(),p=S.topics[t.id];if(p.upgrade[i]!==undefined)return;p.upgrade[i]=j;if(j===t.upgrade[i].c){addPts(10);toast("+10 points");}checkBadge();render();}
+
+function gap(t){
+  const g=t.gap,p=S.topics[t.id];
+  const opts=[...g.a,...g.x].sort();
+  let html=esc(g.t).replace(/\{(\d)\}/g,(m,n)=>{
+    const val=p.gapVals?p.gapVals[n]:"";
+    const cls=p.gapTried?(val===g.a[n]?"ok":"no"):"";
+    return `<select aria-label="Gap ${+n+1}" class="${cls}" onchange="gapSet(${n},this.value)"><option value="">— choose —</option>${opts.map(o=>`<option ${val===o?'selected':''}>${esc(o)}</option>`).join("")}</select>`;});
+  return `<p class="lead">Complete the Band 6 answer with the right phrase. Two phrases are not needed.</p>
+   <div class="gap">${html}</div>
+   <div class="nav"><button class="btn ghost" onclick="gapCheck()">Check my answers</button>
+   <span class="count">${p.gap?'✓ All correct — now read it aloud!':''}</span></div>`;
+}
+function gapSet(n,v){const p=S.topics[view.topic];if(!p.gapVals)p.gapVals=["","","",""];p.gapVals[n]=v;}
+function gapCheck(){const t=curT(),p=S.topics[t.id];if(!p.gapVals)p.gapVals=["","","",""];
+  const right=p.gapVals.filter((v,i)=>v===t.gap.a[i]).length;p.gapTried=true;
+  if(right===4&&!p.gap){p.gap=true;addPts(15);toast("+15 points");checkBadge();}
+  else if(right<4)toast(right+" of 4 correct — fix the red ones");
+  render();}
+
+let TMR=null;
+function stopTimer(){if(TMR){clearInterval(TMR);TMR=null;}}
+function speak(t){
+  const p=S.topics[t.id];
+  return `<p class="lead">Answer each question out loud, like the real test. Take 5 seconds to think, then speak for 20–30 seconds. Try to answer, then add a reason or an example.</p>`+
+  t.speak.map((s,i)=>`<div class="speak ${p.speak[i]?'done':''}" id="sp${i}">
+    <div class="bub ex" style="display:inline-block"><small>Examiner</small>${esc(s[0])}</div>
+    <div><span class="starter">💬 Start with: <b>${esc(s[1])}</b></span></div>
+    <div class="timer" id="tb${i}"><i></i></div><div class="tlabel" id="tl${i}"></div>
+    <div class="checks">
+     <label><input type="checkbox"> I answered the question</label>
+     <label><input type="checkbox"> I gave a reason or an example</label>
+     <label><input type="checkbox"> I used at least one phrase from this topic</label>
+    </div>
+    <div class="nav" style="margin-top:8px"><button class="btn ghost" onclick="runTimer(${i})">▶ Start timer</button>
+     <button class="btn" onclick="spokeDone(${i})">${p.speak[i]?'✓ Done':'I answered it'}</button></div>
+   </div>`).join("");
+}
+function runTimer(i){
+  stopTimer();const bar=document.querySelector("#tb"+i),fill=bar.querySelector("i"),lab=document.getElementById("tl"+i);
+  let phase="think",left=5,total=5;bar.classList.add("think");
+  const tick=()=>{fill.style.width=((total-left)/total*100)+"%";
+    lab.textContent=phase==="think"?`Think… ${left}s`:`Speak now! ${left}s`;
+    if(left<=0){if(phase==="think"){phase="speak";left=30;total=30;bar.classList.remove("think");fill.style.width="0";lab.textContent="Speak now! 30s";return;}
+      stopTimer();lab.textContent="Time's up. How did it go? Tick the boxes.";return;}
+    left--;};
+  tick();TMR=setInterval(tick,1000);
+}
+function spokeDone(i){const p=S.topics[view.topic];if(!p.speak[i]){p.speak[i]=true;addPts(5);checkBadge();}stopTimer();render();}
+
+function checkBadge(){const t=curT();if(!t)return;const p=S.topics[t.id];
+  if(topicPct(t)===1&&!p.badge){p.badge=true;addPts(20);toast("🏅 Topic complete! +20 points");confetti();}}
+
+/* ============ FINAL ============ */
+let F=null;
+function openFinal(){F={i:0,score:0,ans:null,done:false};view={page:"final"};render();window.scrollTo(0,0);}
+function finalPage(){
+  if(F.done){
+    const pct=Math.round(F.score/FINAL.length*100),pass=pct>=80;
+    return `<button class="back" onclick="goHome()">← All topics</button><section class="panel result">
+     <h2>Your result</h2><div class="big">${F.score} / ${FINAL.length}</div><p>${pct}%</p>
+     ${pass?`<p>Excellent! Type your name to get your certificate.</p>
+      <input class="namein" id="nm" placeholder="Your full name" value="${esc(S.name)}" oninput="S.name=this.value;document.getElementById('cn').textContent=this.value||'Your name'">
+      <div class="nav" style="justify-content:center"><button class="btn" onclick="window.print()">Print certificate</button></div>`
+      :`<p>You need 12 out of 15 for the certificate. Review the topics and try again.</p>`}
+     <div class="nav" style="justify-content:center"><button class="btn ghost" onclick="openFinal()">Try again</button></div>
+     <div class="cert ${pass?'show':''}">
+      <div style="font-size:2.4rem">🏆</div><h2>Certificate of Achievement</h2>
+      <p>This certifies that</p><div class="nm" id="cn">${esc(S.name)||'Your name'}</div>
+      <p>has completed <b>IELTS Speaking Lesson 1: Talk About You</b><br>(Part 1 topic language) with a score of <b>${F.score}/${FINAL.length}</b>.</p>
+      <p style="color:var(--soft)">${new Date().toLocaleDateString('en-GB',{day:'numeric',month:'long',year:'numeric'})}</p>
+      <p style="margin-top:24px;font-size:.9rem">Designed by: Nazila Motahari</p>
+     </div></section>`;
+  }
+  const q=FINAL[F.i];
+  return `<button class="back" onclick="goHome()">← All topics</button>
+   <section class="panel"><div class="count">Question ${F.i+1} of ${FINAL.length} · Score ${F.score}</div>
+   <p class="q" style="margin-top:10px">${esc(q.q)}</p>
+   <div class="opts">${q.o.map((o,j)=>{let c="";if(F.ans!==null){if(j===q.c)c="right";else if(j===F.ans)c="wrong";}
+     return `<button class="opt ${c}" ${F.ans!==null?'disabled':''} onclick="fpick(${j})">${String.fromCharCode(65+j)}. ${esc(o)}</button>`}).join("")}</div>
+   <div class="nav"><span></span><button class="btn" ${F.ans===null?'disabled':''} onclick="fnext()">${F.i===FINAL.length-1?'See my result':'Next question'}</button></div></section>`;
+}
+function fpick(j){if(F.ans!==null)return;F.ans=j;if(j===FINAL[F.i].c){F.score++;addPts(5);}render();}
+function fnext(){if(F.i<FINAL.length-1){F.i++;F.ans=null;}else{F.done=true;if(F.score>S.final.best)S.final.best=F.score;if(F.score/FINAL.length>=.8)confetti();}render();}
+
+/* ============ SAVE / LOAD ============ */
+function saveJSON(){const b=new Blob([JSON.stringify({app:"speaking-1",saved:new Date().toISOString(),state:S},null,2)],{type:"application/json"});
+  const a=document.createElement("a");a.href=URL.createObjectURL(b);a.download="speaking-lesson1-progress.json";a.click();toast("Progress saved to your downloads");}
+function loadJSON(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();
+  r.onload=()=>{try{const d=JSON.parse(r.result);if(d.app!=="speaking-1"||!d.state)throw 0;S=Object.assign(blank(),d.state);
+    TOPICS.forEach(t=>{if(!S.topics[t.id])S.topics[t.id]=blank().topics[t.id];});
+    addPts(0);render();toast("Progress loaded");}catch(_){toast("This file is not a Speaking 1 progress file");}};
+  r.readAsText(f);e.target.value="";}
+
+/* ============ CONFETTI ============ */
+function confetti(){
+  if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+  const c=document.getElementById("confetti"),x=c.getContext("2d");c.width=innerWidth;c.height=innerHeight;
+  const cols=["#8E1F45","#23907A","#F7DFE7","#E0A13A","#DCF1EA"];
+  const ps=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,r:4+Math.random()*6,vy:2+Math.random()*3,vx:-1.5+Math.random()*3,a:Math.random()*6,col:cols[Math.random()*cols.length|0]}));
+  let f=0;(function loop(){x.clearRect(0,0,c.width,c.height);ps.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.a+=.1;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.col;x.fillRect(-p.r,-p.r/2,p.r*2,p.r);x.restore();});
+    if(++f<200)requestAnimationFrame(loop);else x.clearRect(0,0,c.width,c.height);})();
+}
+
+/* ============ RENDER ============ */
+function render(){
+  const app=document.getElementById("app");
+  app.innerHTML=view.page==="home"?home():view.page==="topic"?topicPage():finalPage();
+}
+render();
+</script>
+</body>
+</html>
